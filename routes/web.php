@@ -16,3 +16,40 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts/main');
 });
+
+
+Route::get('/layanan', function () {
+    return view("User/Layanan/layanan", [
+        "title" => "Layanan"
+    ]);
+});
+
+Route::get('/cektarif', function () {
+    return view("User/Cari/CekTarif", [
+        "title" => "Cek-Tarif"
+    ]);
+});
+
+Route::get('/caridroppoint', function () {
+    return view("User/Cari/CariDropPoint", [
+        "title" => "Cari-Drop-Point"
+    ]);
+});
+
+Route::get('/lacakpaket', function () {
+    return view("User/Cari/LacakPaket", [
+        "title" => "Lacak-Paket"
+    ]);
+});
+
+Route::get('/dropoff', function () {
+    return view("User/Order/DropOff", [
+        "title" => "Drop-Off"
+    ]);
+});
+
+Route::get('/pickup', function () {
+    return view("User/Order/PickUp", [
+        "title" => "Pick-Up"
+    ]);
+});
