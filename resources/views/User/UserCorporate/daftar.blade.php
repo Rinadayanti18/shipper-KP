@@ -11,9 +11,24 @@
 </head>
 
 <body>
+    <div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-5">
+        <nav class="navbar navbar-expand-sm fixed-top"  style="background-color: var(--transparantRina);">
+            <div class="container-fluid">
+              <a class="navbar-brand " href="/">
+                <img src="/image/GoPress.png" alt="" width="100" height="60">
+                <small>Home</small>
+                </a>
+            </div>
+        </nav>
+
+        <div class="slider-home container-fluid content mb-5" style="padding-right:0px ; padding-left:0px;">
+            <img class="imageSlider img-fluid" src="/image/Banner-Login.png" alt="Order GOPress" style="width: 100%">
+        </div>
+    
+
+    <div class="row justify-content-center mb-5 mt-5">
+        <div class="col-sm-5 shadow p-4" style="border-radius: 20px">
             <main class="form-registrasi">
                 <h1 class="h3 mb-3 fw-normal text-center">Form Registrasi</h1>
                 <form action="/daftar" method="post">
@@ -71,7 +86,7 @@
         </div>
     </div>
 
-
+</div>
 
 
 </body>

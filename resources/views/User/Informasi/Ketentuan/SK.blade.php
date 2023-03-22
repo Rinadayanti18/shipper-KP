@@ -2,7 +2,9 @@
 @section('container')
     <div class="container col-sm-11 shadow nilah mb-5">
         <div>
-            <h4>Syarat dan Ketentuan</h4>
+            <div class="mb-4">
+                <h4>Syarat dan Ketentuan</h4>
+            </div>
             <p>Tanggal Efektif : Agustus 2019</p>
             <p>Syarat dan ketentuan ini menguraikan aturan dan peraturan untuk penggunaan Situs Web PT GOPress, yang
                 terletak di gopress.co.id. </p>

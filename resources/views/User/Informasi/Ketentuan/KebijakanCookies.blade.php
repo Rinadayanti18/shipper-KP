@@ -2,7 +2,9 @@
 @section('container')
     <div class="container col-sm-11 shadow nilah mb-5">
         <div>
-            <h4>Kebijakan Cookie</h4>
+            <div class="mb-4">
+                <h4>Kebijakan Cookie</h4>
+            </div>
             <p>Tanggal efektif: Agustus, 2019</p> <br>
             <p>Ini adalah Kebijakan Cookie untuk Situs Web GOPress, dapat diakses dari https://gopress.co.id</p>
             <h5>Apa Itu Cookie</h5>

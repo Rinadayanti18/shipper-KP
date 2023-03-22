@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid" style="padding-left: 50px ; padding-right: 50px ;">
-                <a style="padding-right: 100px" href="/home">
+                <a style="padding-right: 100px" href="/">
                     <img src="/image/GoPress.png" alt="" width="100" height="60"
                         class="d-inline-block align-text-top">
                 </a>
@@ -88,7 +88,14 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-rin {{ $title === 'Berita dan Acara' || $title === 'Karir' || $title === 'Profil Perusahaan' ? 'active' : '' }} 
+                            <a class="nav-rin {{ $title === 'Berita dan Acara' || 
+                                                 $title === 'Berita' ||
+                                                 $title === 'Event' ||
+                                                 $title === 'Single Event' ||
+                                                 $title === 'Karyawan' ||
+                                                 $title === 'Single Employee' ||
+                                                 $title === 'Karir' || 
+                                                 $title === 'Profil Perusahaan' ? 'active' : '' }} 
                                     dropdown-toggle"
                                 href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -101,12 +108,41 @@
                             </ul>
                         </li>
                     </ul>
+
+
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item ">
-                            <a style="color: #9e6feeda" href="/masuk">
-                                <i class="bi bi-box-arrow-in-right"></i>
-                                Masuk/Daftar</a>
-                        </li>
+                        @auth
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false" style="color: #9e6feeda"><i
+                                        class="bi bi-emoji-sunglasses"></i>
+                                    {{ auth()->user()->name }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/profil">Informasi Pribadi</a></li>
+                                    {{-- <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/pesananU">Order Saya</a> </li> --}}
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form action="/logout" method="post">
+                                            @csrf
+                                            <button type="submit" style="border-radius: 20%"
+                                                class="dropdown-item">Keluar</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item ">
+                                <a style="color: #9e6feeda" href="/masuk">
+                                    <i class="bi bi-box-arrow-in-right"></i>
+                                    Masuk/Daftar</a>
+                            </li>
+                        @endauth
                     </ul>
                     {{-- <form class="d-flex" style="margin-left: 40%">
                         <button class="btn btn-outline-success" type="submit">Masuk/Daftar</button>
@@ -153,26 +189,28 @@
         </div>
 
         {{-- ===== Banner Tentang Kami ====== --}}
-        <div class="navbar_display"
-        style="{{ $title === 'Profil Perusahaan' ? 'display : block' : '' }}">
+        <div class="navbar_display" style="{{ $title === 'Profil Perusahaan' ? 'display : block' : '' }}">
             @include('layouts.Informasi.tentangKami.profil')
         </div>
-        <div class="navbar_display"
-        style="{{ $title === 'Berita dan Acara' ? 'display : block' : '' }}">
+        <div class="navbar_display" style="{{ $title === 'Berita dan Acara' ||
+                                              $title === 'Berita' ||
+                                              $title === 'Event' ||
+                                              $title === 'Single Event' ||
+                                              $title === 'Single Employee' ||
+                                              $title === 'Karyawan' ? 'display : block' : '' }}">
             @include('layouts.Informasi.tentangKami.berita')
         </div>
-        <div class="navbar_display"
-            style="{{ $title === 'Berita dan Acara' || $title === 'Karir' ? 'display : block' : '' }}">
+        <div class="navbar_display" style="{{ $title === 'Karir' ? 'display : block' : '' }}">
             @include('layouts.Informasi.tentangKami.karir')
         </div>
-        
+
     </div>
 
 
 
 
 
-    <div class="container">
+    <div class="container-fluid">
         @yield('container')
     </div>
 

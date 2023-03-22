@@ -3,7 +3,7 @@
 
       <div class="container col-sm-9 mt-4" style="position: static">
         <div>
-          <h3 style="padding: 15px; justify-content: center">FAQ</h3>
+          <h3 style="padding: 20px; text-align: center;">FAQ</h3>
         </div>
         
         <div class="accordion" id="accordionExample">

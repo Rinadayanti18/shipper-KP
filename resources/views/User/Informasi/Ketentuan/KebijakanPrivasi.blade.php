@@ -2,8 +2,10 @@
 @section('container')
     <div class="container col-sm-11 shadow nilah mb-5">
         <div>
-            <h4>Kebijakan Privasi</h4>
-            <h5>Tanggal efektif: Agustus, 2019</h5> <br>
+            <div>
+                <h4>Kebijakan Privasi</h4>
+            </div>
+            <p>Tanggal efektif: Agustus, 2019</p> <br>
             <p>PT.Global GO Express ("kami") mengoperasikan Situs Web GOPress ("Layanan").</p> <br>
             <p>Halaman ini memberi tahu Anda tentang kebijakan kami mengenai pengumpulan,
                 penggunaan, dan pengungkapan data pribadi saat Anda menggunakan Layanan kami

@@ -12,8 +12,24 @@
 
 <body>
 
+    <div>
+
+        <nav class="navbar navbar-expand-sm fixed-top"  style="background-color: var(--transparantRina);">
+            <div class="container-fluid">
+              <a class="navbar-brand " href="/"> 
+                <img src="/image/GoPress.png" alt="" width="100" height="60">
+                <small>Home</small>
+                </a>
+            </div>
+        </nav>
+
+        <div class="slider-home container-fluid content mb-5" style="padding-right:0px ; padding-left:0px;">
+            <img class="imageSlider img-fluid" src="/image/Banner-Login.png" alt="Order GOPress" style="width: 100%">
+        </div>
+    
+
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-sm-3 shadow p-4" style="border-radius: 20px">
 
             @if (session()->has('succes'))
                 <div class="alert alert-succes alert-dismissible fade show" role="alert">
@@ -35,19 +51,21 @@
                 <form action="/masuk" method="post">
                     @csrf
                     <div class="form-floating">
-                        <input type="email" name="email" class="form-control 
-                        @error('email') is-invalid @enderror" id="email" 
-                        placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+                        <input type="email" name="email"
+                            class="form-control 
+                        @error('email') is-invalid @enderror"
+                            id="email" placeholder="name@example.com" autofocus required
+                            value="{{ old('email') }}">
                         <label for="email">Email/username </label>
                         @error('email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
                     <div class="form-floating">
-                        <input type="password" name="password" class="form-control" id="password" 
-                        placeholder="Password" required>
+                        <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Password" required>
                         <label for="password">Password</label>
                     </div>
                     {{-- <div class="checkbox mb-3">
@@ -64,7 +82,7 @@
         </div>
     </div>
 
-
+</div>
 
 
 </body>

@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\getApi;
+use App\Http\Controllers\PostController;
 
 
 
@@ -18,14 +22,14 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/main', [
-        "title" => "Main"
-    ]);
-});
+// Route::get('/', function () {
+//     return view('layouts/main', [
+//         "title" => "Main"
+//     ]);
+// });
 
 // Home
-Route::get('home', function () {
+Route::get('/', function () {
     return view('Home', [
         "title" => "Home"
     ]);
@@ -39,11 +43,12 @@ Route::get('/layanan', function () {
 });
 
 // Cari
-Route::get('/cektarif', function () {
-    return view("User/Cari/CekTarif", [
-        "title" => "Cek Tarif"
-    ]);
-});
+
+// Route::get('/cektarif', function () {
+//     return view("User/Cari/CekTarif", [
+//         "title" => "Cek Tarif"
+//     ]);
+// });
 
 Route::get('/lacakpaket', function () {
     return view("User/Cari/LacakPaket", [
@@ -63,20 +68,36 @@ Route::get('/dropoff', function () {
     return view("User/Order/DropOff", [
         "title" => "Drop Off"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/pickup', function () {
     return view("User/Order/PickUp", [
         "title" => "Pick Up"
     ]);
-});
+})->middleware('auth');
 
 // ===== Tentang Kami =====
-Route::get('/beritadanacara', function () {
-    return view("User/TentangKami/BeritaDanAcara", [
-        "title" => "Berita dan Acara"
+// Berita dan Acara
+// Route::get('/beritadanacara', function () {
+//     return view("User/TentangKami/BeritaDanAcara", [
+//         "title" => "Berita dan Acara"
+//     ]);
+// });
+
+// Route::get('/event', function () {
+//     return view("User/TentangKami/event", [
+//         "title" => "Event"
+//     ]);
+// });
+
+Route::get('/karyawan', function () {
+    return view("User/TentangKami/detailBerita.karyawan", [
+        "title" => "Karyawan"
     ]);
 });
+
+
+// End Of Berita dan Acara
 
 Route::get('/karir', function () {
     return view("User/TentangKami/Karir", [
@@ -84,11 +105,7 @@ Route::get('/karir', function () {
     ]);
 });
 
-Route::get('/detailKarir', function () {
-    return view("User/TentangKami/detailKarir", [
-        "title" => "Detail Karir"
-    ]);
-});
+
 
 Route::get('/profilperusahaan', function () {
     return view("User/TentangKami/ProfilPerusahaan", [
@@ -149,7 +166,20 @@ Route::get('/kebijakanprivasi', function () {
 
 // Admin
 Route::get('/dashboard', function () {
-    return view("Admin/Dashboard", [
+    return view("Admin/dashboard", [
+        "title" => "Dashboard"
+    ]);
+});
+
+// Route::get('/customer', function () {
+//     return view("Admin/customer", [
+//         "title" => "Customer"
+//     ]);
+// });
+
+
+Route::get('/pesananU', function () {
+    return view("User/UserCorporate/pesananU", [
         "title" => "Dashboard"
     ]);
 });
@@ -157,11 +187,35 @@ Route::get('/dashboard', function () {
 
 /* Masuk/Daftar */
 
-Route::get('/masuk', [LoginController::class, 'masuk']);
+Route::get('/masuk', [LoginController::class, 'masuk'])->name('login') ->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'authenticate']);
-Route::get('/daftar', [RegisterController::class, 'daftar']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/daftar', [RegisterController::class, 'daftar'])->middleware('guest');
 Route::post('/daftar', [RegisterController::class, 'store']);
 
+
+Route::get('/profil',[ProfilController::class, 'profil'])->middleware('auth');
 /* Masuk/Daftar */
 
+Route::get('/cektarif', [getApi::class, 'index']);
+Route::get('/province/{id}/cities', [getApi::class, 'getCities']);
+Route::post('/cektarif', [getApi::class, 'submit']);
+// Route::get('/cektarif', [getApi::class, 'submit']);
+//Route::get('getCity/ajax/{id}', [getApi::class, 'ajax']);
 
+
+
+// Admin
+Route::get('/customer', [dashboardController::class, 'dashboardA']);
+
+// Post
+// Berita
+Route::get('/beritadanacara', [PostController::class, 'berita']);
+Route::get('/singleBerita{id}', [PostController::class, 'SingleBerita']);
+//event
+Route::get('/event', [PostController::class, 'event']);
+Route::get('/singleEvent{id}', [PostController::class, 'SingleEvent']);
+//karyawan
+Route::get('/karyawan', [PostController::class, 'karyawan']);
+Route::get('/singEmployee{id}',[PostController::Class,'singleEmployee']);

@@ -2,7 +2,9 @@
 @section('container')
     <div class="container col-sm-11 shadow nilah mb-5">
         <div>
-            <h4>Syarat & Ketentuan Pengiriman</h4>
+            <div class="mb-4">
+                <h4 >Syarat & Ketentuan Pengiriman</h4>
+            </div>
             <ol>
                 <li>
                     Pengirim wajib mengemas barang kirimannya dengan baik untuk melindungi isi barang kirimannya selama
