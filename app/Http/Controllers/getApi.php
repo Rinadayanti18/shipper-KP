@@ -41,20 +41,20 @@ class getApi extends Controller
       // if(isset($request->tes)) {
          $couriers = Courier::pluck('title','code');
          $provinces = Province::pluck('title','province_id');
-         $cost = RajaOngkir::ongkosKirim([
+         $results = RajaOngkir::ongkosKirim([
             'origin'       => $request->city_origin,
             'destination'  => $request->city_destination,
             'weight'       => $request->weight,
             'courier'      => $request->courier,
          ])->get();
-         // dd($cost[0]);
+         // dd($results[0]["code"]);
          // dd($cost[0]["costs"]);
    
-         return view('/User.Cari.CekTarif', ['cost' => $cost[0], 'couriers' => $couriers, 'provinces' => $provinces], [
+         return view('/User.Cari.CekTarif', ['results' => $results[0], 'couriers' => $couriers, 'provinces' => $provinces], [
             'title'=> 'Cek Tarif'
          ]);
          
-         // return view('/User.Cari.CekTarif', compact('cost','couriers','provinces'), [
+         // return view('/User.Cari.CekTarif', compact('results','couriers','provinces'), [
          //    'title'=> 'Cek Tarif'
          // ]);
       // }
