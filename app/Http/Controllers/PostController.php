@@ -13,7 +13,7 @@ class PostController extends Controller
        
         return view ('User.TentangKami.BeritadanAcara', 
         ['title' => 'Berita dan Acara',
-        'newses' => Berita::all()
+        'newses' => Berita::paginate(3)
         ]);
     }
 
@@ -28,7 +28,7 @@ class PostController extends Controller
     public function event(){
         return view ('User.TentangKami.detailBerita.event', 
         ['title' => 'Event'],
-        ['events' => Event::all()]
+        ['events' => Event::paginate(3)]
     );
     }
 
@@ -44,7 +44,7 @@ class PostController extends Controller
     public function karyawan(){
         return view ('User.TentangKami.detailBerita.karyawan', 
         ['title' => 'Karyawan'],
-        ['karyawan' => Karyawan::all()]
+        ['karyawan' => Karyawan::paginate(3)]
     );
     }
 
@@ -54,4 +54,18 @@ class PostController extends Controller
         'singEmployee' => Karyawan::find($id)]
     );
     }
+
+    public function perusahaan(){
+        return view ('User.TentangKami.ProfilPerusahaan', 
+        ['title' => 'Karyawan'],
+        ['karyawan' => ProfilPerusahaan::paginate(3)]
+    );
+    }
+
+    // public function singlePerusahaan($id){
+    //     return view ('User.TentangKami.singleProfilPerusahaan',[
+    //         'title' => 'Single Profil Perusahaan',
+    //     'singEmployee' => ProfilPerusahaan::find($id)]
+    // );
+    // }
 }

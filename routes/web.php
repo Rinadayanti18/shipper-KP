@@ -107,11 +107,11 @@ Route::get('/karir', function () {
 
 
 
-Route::get('/profilperusahaan', function () {
-    return view("User/TentangKami/ProfilPerusahaan", [
-        "title" => "Profil Perusahaan"
-    ]);
-});
+// Route::get('/profilperusahaan', function () {
+//     return view("User/TentangKami/ProfilPerusahaan", [
+//         "title" => "Profil Perusahaan"
+//     ]);
+// });
 
 // ===== Informasi =====
 Route::get('/faq', function () {
@@ -210,6 +210,10 @@ Route::post('/cektarif', [getApi::class, 'submit']);
 Route::get('/customer', [dashboardController::class, 'dashboardA']);
 
 // Post
+//Profil Perusahaan
+Route::get('/profilperusahaan', [PostController::class, 'perusahaan']);
+
+
 // Berita
 Route::get('/beritadanacara', [PostController::class, 'berita']);
 Route::get('/singleBerita{id}', [PostController::class, 'SingleBerita']);

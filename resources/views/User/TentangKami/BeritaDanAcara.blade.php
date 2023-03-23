@@ -43,9 +43,15 @@
 
                 @endforeach
             </div>
-            
+            <div class="d-flex justify-content-center">
+                {{ $newses->links() }}
+            </div>
+         
         </div>
     </div>
+
+   
+
 
 </div> <br><br><br><br>
 
