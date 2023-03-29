@@ -1,69 +1,45 @@
 @extends('layouts.main')
 @section('container')
 
-<div class="justify-content-center mb-5" style="display: flex">
-    <div class="p-5 mt-5 " >
-       <div>
-           <p style="text-align: center"><b>
-               GO Express berkomitmen untuk memanfaatkan sistem IT yang canggih <br> untuk meningkatkan efisiensi 
-               dan kualitas bagi pelanggan
-           </b></p> <br>
-           <div class="row">
-            <div class="col-sm-3">
-                <img class="mb-3" src="image/pro-1.png"  alt="Paris" width="250" height="180"> 
-                <p>Beroperasi 365 hari</p>
+<div class="justify-content-center d-flex mb-5  ">
+<div class="p-5 col-sm-8 shadow mt-5 mb-5">
+    <div>
+        @foreach ($perusahaan as $company)
+            <div class="">
+                <h4>{{ $company->title }}</h4>
+                {!! $company->body !!}
             </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-                <img class="mb-3" src="image/pro-2.png"  alt="Paris" width="250" height="180"> 
-                <p>Menjangkau seluruh Indonesia</p>
+            <div class="justify-content-center d-flex mt-5">
+                {{ $perusahaan->links() }}
             </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-                <img class="mb-3" src="image/pro-3.png" class="float-start" alt="Paris" width="250" height="180">
-                <p>24 jam layanan keluhan pelanggan</p> 
-            </div>
-
-           </div>
-           <div class="row mb-5 justify-content-center" style="display: flex">
-            <div class="col-sm-3">
-                <img class="float-start mb-3" src="image/pro-1.png"  alt="Paris" width="250" height="180"> 
-                <p>Beroperasi 365 hari</p>
-            </div>
-            
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-                <img class="float-end mb-3" src="image/pro-3.png"  alt="Paris" width="250" height="180">
-                <p>24 jam layanan keluhan pelanggan</p> 
-            </div>
-
-           </div>
-
-
-
-            {{-- <div class="container">
-            <div>
-
-                <img src="image/pro-1.png" class="float-start" alt="Paris" width="250" height="180"> 
-                <p>Operasional 365 hari</p>
-            </div>
-               <img src="image/mapIndo.png" class="float-end" alt="Paris" width="250" height="180"> 
-           </div> --}}
-           
-       </div>
-       
-      
-        <ul class="pagination justify-content-center" style="display: flex">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-
+        @endforeach
     </div>
-
-    
 </div>
+</div>
+    {{-- <div class="justify-content-center mb-5" style="display: flex">
+        <div class="p-5 mt-5 ">
+                <div class="row ">
+                    @foreach ($perusahaan as $company)
+                        <div class="col-sm-4  p-4">
+                            <div class="shadow serv-cont card" style=" width: 275px">
+                                <img src="/image/layanan/GOEZ.png" alt="GOPress EZ">
+                                <div class="card-body" style="background-color:var(--bgRina)">
+                                    <p class="card-text">
+                                    <h4 style="justify-content: center ; display: flex">{{ $company->title }}</h4> <br>
+                                    </p> --}}
+                                    {{-- {!! $company->body !!} --}}
+                                    {{-- tombol mengarah ke halaman singleBerita dengan menggunakan slug berita --}}
+                                    {{-- <a style="text-decoration : none" href="/singEmployee{{ $employee->id }}">Selengkapnya</a>  --}}
+                                {{-- </div>
+                            </div>
+                        </div>
+                </div> --}}
 
+            {{-- <div class="d-flex justify-content-center"> --}}
+                {{-- {{ $perusahaan->links() }} --}}
+            {{-- </div> --}}
+
+          
+        {{-- </div>
+    </div> --}}
 @endsection

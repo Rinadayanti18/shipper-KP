@@ -21,7 +21,14 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                {{-- <a class="" href="#">Sign out</a> --}}
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" style="border-radius: 20%"
+                        class="nav-link px-3 bg-dark border-0">Keluar
+                        <span data-feather="log-out"></span>
+                    </button>
+                </form>
             </div>
         </div>
     </header>
@@ -59,7 +66,7 @@
                             {{-- dropdown untuk menu post, halaman untuk crud post yang ada oleh admin --}}
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                    <span data-feather="bar-chart-2"></span>
+                                    <span data-feather="file-text"></span>
                                     Posts
                                 </a>
                                 <ul class="dropdown-menu">

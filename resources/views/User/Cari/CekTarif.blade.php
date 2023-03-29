@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('container')
-    <div class="container" style="margin-bottom: 20%">
+    <div class="container " style="margin-bottom: 20%">
         <div class="row">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header mt-5 ">
                     Cek Ongkir
                 </div>
-                <div class="card-body">
+                <div class="card-body p-5">
                     <div class="">
                         <form class="form-horizontal" role="form" method="POST" action="/cektarif">
                             @csrf
@@ -38,6 +38,7 @@
                                             <div class="form-group">
                                                 <label for="">Kurir</label>
                                                 <select name="courier" class="form-control" id="">
+                                                    <option value="">--Kurir--</option>
                                                     @foreach ($couriers as $courier => $value)
                                                         <option value="{{ $courier }}">{{ $value }}</option>
                                                     @endforeach
@@ -82,7 +83,7 @@
 
 
 
-                                <button name="tes" type="submit" class="btn btn-block btn-event"
+                                <button name="tes" type="submit" class="btn btn-block btn-event mt-5"
                                     style="background-color: var(--dasar); color: aliceblue">Submit</button>
                                 {{-- <div class="col-md-6">
                                 @foreach ($fee as $asal)

@@ -22,6 +22,12 @@
                         <th>Email</th>
                         <th>{{ auth()->user()->email }}</th>
                     </tr>
+                    <tr>
+                        <th>No. Tlp</th>
+                    </tr>
+                    <tr>
+                        <th>Alamat</th>
+                    </tr>
                 </table>
                 
             </div>

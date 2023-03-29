@@ -70,11 +70,11 @@ Route::get('/dropoff', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/pickup', function () {
-    return view("User/Order/PickUp", [
-        "title" => "Pick Up"
-    ]);
-})->middleware('auth');
+// Route::get('/pickup', function () {
+//     return view("User/Order/PickUp", [
+//         "title" => "Pick Up"
+//     ]);
+// })->middleware('auth');
 
 // ===== Tentang Kami =====
 // Berita dan Acara

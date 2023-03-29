@@ -359,7 +359,7 @@
 
 
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Cancel">
                     <input type="submit" value="Submit" style="margin-right: 30px">
 
 

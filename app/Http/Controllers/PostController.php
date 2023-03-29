@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Berita;
 use App\Models\Event;
 use App\Models\Karyawan;
+use App\Models\ProfilPerusahaan;
 
 class PostController extends Controller
 {
@@ -57,8 +58,8 @@ class PostController extends Controller
 
     public function perusahaan(){
         return view ('User.TentangKami.ProfilPerusahaan', 
-        ['title' => 'Karyawan'],
-        ['karyawan' => ProfilPerusahaan::paginate(3)]
+        ['title' => 'perusahaan'],
+        ['perusahaan' => ProfilPerusahaan::paginate(1)]
     );
     }
 
